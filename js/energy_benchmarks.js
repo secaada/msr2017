@@ -1,16 +1,167 @@
-var cpuMeansJava = [122.98,707.33,61.86,36.50,281.56,233.38,89.58,89.36,29.88,448.45];
-var cpuMeansJavascript = [85.55,265.01,94.26,94.26,220.09,163.17,7.23,7.23,194.07,216.79];
-var cpuMeansJavaNDK = [314.25,573.40,148.64,146.46,67.95,510.90,73.38,73.77,10.97,310.67];
+var informations = {
+  toJoules_LGL90 : 3.6*4.01,
+  toJoules_NEXUS7 : 3.6*3.94,
 
-var clockMeansJava = [138.21,194.20,68.54,22.12,110.58,241.66,95.14,54.24,31.08,120.83];
-var clockMeansJava = [89.80,271.55,102.02,102.02,226.13,169.17,11.06,11.06,213.32,225.85];
-var clockMeansJava = [317.75,157.15,156.19,42.67,40.57,524.36,79.59,54.38,28.40,85.45];
+  mahMeansJava_LGL90 : [4.66,25.86,2.35,1.33,10.29,8.79,3.44,3.34,1.1,17.17],
+  mahMeansJavascript_LGL90 :[3.30,10.42,3.67,3.67,8.42,6.40,0.25,0.25,7.81,8.35],
+  mahMeansNDK_LGL90 :[12.44,20.87,5.53,5.12,2.43,18.78,2.75,2.66,0.40,11.82],
+  clockMeansJava_LGL90 : [138.21,194.20,68.54,22.12,110.58,241.66,95.14,54.24,31.08,120.83],
+  clockMeansJavascript_LGL90 : [89.80,271.55,102.02,102.02,226.13,169.17,11.06,11.06,213.32,225.85],
+  clockMeansNDK_LGL90 : [317.75,157.15,156.19,42.67,40.57,524.36,79.59,54.38,28.40,85.45],
 
-c3.generate({
+  mahMeansJava_NEXUS7 : [3.75,14.55,2.65,2.26,7.30,5.31,2.93,2.96,1.07,9.89],
+  mahMeansJavascript_NEXUS7 :[2.69,6.18,2.38,2.38,3.67,4.04,0.28,0.28,5.42,4.10],
+  mahMeansNDK_NEXUS7 :[3.94,21.18,4.21,3.94,2.68,16.62,2.55,2.58,0.45,6.24],
+  clockMeansJava_NEXUS7 : [75.91,111.90,75.33,41.45,64.58,144.17,82.81,48.79,29.45,78.21],
+  clockMeansJavascript_NEXUS7 : [80.19,178.89,72.79,72.79,100.98,112.19,10.80,10.80,147.39,112.86],
+  clockMeansNDK_NEXUS7 : [119.60,150.63,115.15,31.57,38.11,444.28,70.55,47.94,14.35,47.01]
+
+
+};
+
+var barGraph = {
+    bindto: '',
+    data: {
+      columns: [[0],[0],[0]],
+      type: 'bar',
+      colors: {
+        'Energy Java':'#009900',
+        'Energy Javascript':'#ff6600',
+        'Energy NDK':'#0066ff'
+      }
+    },
+    axis: {
+      x: {
+        type: 'category',
+        categories:['BinaryTrees',
+        'Fannkuch',
+        'Fasta',
+        'FastaP',
+        'Knucleotide',
+        'Nbody',
+        'RegexDna',
+        'RegexDnaP',
+        'RevComp',
+        'Spectral']
+      }
+    },
+    legend: {
+        position: 'right'
+    }
+};
+
+var lineGraph = {
+    bindto: '',
+    data: {
+      columns: [[0],[0],[0]],
+      type: 'line',
+      colors: {
+        'Time Java':'#009900',
+        'Time Javascript':'#ff6600',
+        'Time NDK':'#0066ff'
+      }
+    },
+    axis: {
+      x: {
+        type: 'category',
+        categories:['BinaryTrees','Fannkuch','Fasta','FastaP','Knucleotide','Nbody','RegexDna','RegexDnaP','RevComp','Spectral']
+      }
+    },
+    legend: {
+        position: 'right'
+    }
+};
+
+var barLineGraph = {
+    bindto: '',
+    data: {
+      columns: [[0],[0],[0],[0],[0],[0]],
+      type: 'bar',
+      types : {
+        'Time Java':'line',
+        'Time Javascript':'line',
+        'Time NDK':'line'
+      },
+      colors: {
+        'Energy Java':'#009900',
+        'Energy Javascript':'#ff6600',
+        'Energy NDK':'#0066ff',
+        'Time Java':'#009900',
+        'Time Javascript':'#ff6600',
+        'Time NDK':'#0066ff'
+      }
+    },
+    axis: {
+      x: {
+        type: 'category',
+        categories:['BinaryTrees',
+        'Fannkuch',
+        'Fasta',
+        'FastaP',
+        'Knucleotide',
+        'Nbody',
+        'RegexDna',
+        'RegexDnaP',
+        'RevComp',
+        'Spectral']
+      }
+    },
+    legend: {
+        position: 'right'
+    }
+};
+
+var devices = ['LGL90','NEXUS7'];
+
+for(var i = 0; i < devices.length; i++){
+    var EnergyJava = informations['mahMeansJava_'+devices[i]];
+    var EnergyJavascript = informations['mahMeansJavascript_'+devices[i]];
+    var EnergyNDK = informations['mahMeansNDK_'+devices[i]];
+    for(var j = 0; j < EnergyJava.length; j++){
+        EnergyJava[j]*=informations['toJoules_'+devices[i]];
+        EnergyJavascript[j]*=informations['toJoules_'+devices[i]];
+        EnergyNDK[j]*=informations['toJoules_'+devices[i]];
+    }
+    EnergyJava = ['Energy Java'].concat(EnergyJava);
+    EnergyJavascript = ['Energy Javascript'].concat(EnergyJavascript);
+    EnergyNDK = ['Energy NDK'].concat(EnergyNDK);
+
+    var TimeJava = ['Time Java'].concat(informations['clockMeansJava_'+devices[i]]);
+    var TimeJavascript = ['Time Javascript'].concat(informations['clockMeansJavascript_'+devices[i]]);
+    var TimeNDK = ['Time NDK'].concat(informations['clockMeansNDK_'+devices[i]]);
+
+    barGraph['bindto']='#'+devices[i]+'_energy';
+    barGraph['data']['columns'][0] = EnergyJava;
+    barGraph['data']['columns'][1] = EnergyJavascript;
+    barGraph['data']['columns'][2] = EnergyNDK;
+
+    lineGraph['bindto']='#'+devices[i]+'_time';
+    lineGraph['data']['columns'][0] = TimeJava;
+    lineGraph['data']['columns'][1] = TimeJavascript;
+    lineGraph['data']['columns'][2] = TimeNDK;
+
+    barLineGraph['bindto']='#'+devices[i]+'_energy_time';
+    barLineGraph['data']['columns'][0] = EnergyJava;
+    barLineGraph['data']['columns'][1] = EnergyJavascript;
+    barLineGraph['data']['columns'][2] = EnergyNDK;
+    barLineGraph['data']['columns'][3] = TimeJava;
+    barLineGraph['data']['columns'][4] = TimeJavascript;
+    barLineGraph['data']['columns'][5] = TimeNDK;
+
+    c3.generate(barGraph);
+    c3.generate(lineGraph);
+    c3.generate(barLineGraph);
+
+}
+
+
+
+/*c3.generate({
     bindto: '#energyBenchmarksLGL90',
     data: {
       columns: [
-        ['Energy Java', 4.66,25.86,2.35,1.33,10.29,8.79,3.44,3.34,1.1,17.17],
+        ['Energy Java', 4.66*LGL90_toJoules,25.86*LGL90_toJoules,2.35*LGL90_toJoules,1.33*LGL90_toJoules,10.29*LGL90_toJoules,8.79*LGL90_toJoules,3.44*LGL90_toJoules,3.34*LGL90_toJoules,1.1*LGL90_toJoules,
+        17.17*LGL90_toJoules],
         ['Energy Javascript', 3.30,10.42,3.67,3.67,8.42,6.40,0.25,0.25,7.81,8.35],
         ['Energy NDK', 12.44,20.87,5.53,5.12,2.43,18.78,2.75,2.66,0.40,11.82]
       ],
@@ -166,7 +317,8 @@ c3.generate({
     bindto: '#energyAndTime_2',
     data: {
       columns: [
-        ['Energy Java', 4.66,25.86,2.35,1.33,10.29,8.79,3.44,3.34,1.1,17.17],
+        ['Energy Java', 4.66*LGL90_toJoules,25.86*LGL90_toJoules,2.35*LGL90_toJoules,1.33*LGL90_toJoules,10.29*LGL90_toJoules,8.79*LGL90_toJoules,3.44*LGL90_toJoules,3.34*LGL90_toJoules,1.1*LGL90_toJoules,
+        17.17*LGL90_toJoules],
         ['Energy Javascript', 3.30,10.42,3.67,3.67,8.42,6.40,0.25,0.25,7.81,8.35],
         ['Energy NDK', 12.44,20.87,5.53,5.12,2.43,18.78,2.75,2.66,0.40,11.82],
         ['Time Java', 138.21,194.20,68.54,22.12,110.58,241.66,95.14,54.24,31.08,120.83],
@@ -198,4 +350,4 @@ c3.generate({
     legend: {
         position: 'right'
     }
-});
+});*/
