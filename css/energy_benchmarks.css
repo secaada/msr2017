@@ -1,0 +1,16 @@
+table {
+	border-collapse: collapse;
+	width: 100%;
+	height: 100%;
+}
+tr {
+	border-top-style: solid;	
+	border-top-color: black;
+}
+tr, th, td {
+	border-bottom-style: solid;	
+}
+
+.right-align-table {
+	text-align:right;
+}
