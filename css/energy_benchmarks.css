@@ -1,13 +1,13 @@
-table {
+.tb-specs {
 	border-collapse: collapse;
 	width: 100%;
 	height: 100%;
 }
-tr {
+.tb-specs tr {
 	border-top-style: solid;	
 	border-top-color: black;
 }
-tr, th, td {
+.tb-specs tr, .tb-specs  th, .tb-specs td {
 	border-bottom-style: solid;	
 }
 
