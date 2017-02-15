@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Collected energy data</title>
+		<link href="css/c3.min.css" rel="stylesheet" type="text/css">
+		<link href="css/energy_benchmarks.css" rel="stylesheet" type="text/css">
+		<!-- Load d3.js and c3.js -->
+		<script src="js/d3.min.js" charset="utf-8"></script>
+		<script src="js/c3.min.js"></script>
+	</head>
+
+	<body>
+		<div style="width:80%;margin:0px auto;text-align:center;">
+			<h1>Results from the benchmarks ran at <a href="energy_benchmarks.html">TCLBG benchmarks</a></h1>
+			<p>We show below a summary of the results obtained on the link above. Here we quantify the results to see if there is a winner between the three analyzed approaches.</p>
+		</div>
+
+		
+
+		<h2 style="text-align:center;">Counting how many times each approach was better</h2>
+		
+		<div style="width:80%;margin: 0 auto">
+		<table class="tb-comparison" style="text-align:left;white-space:nowrap;display:inline-block;width:49.5%;overflow-x:auto;">
+			<tr>
+				<th>Energy</th>
+				<th>L90</th>
+				<th>NEXUS 5</th>
+				<th>NEXUS 7</th>
+				<th>SAMSUNG J7</th>
+				<th>ZENFONE SELFIE</th>
+			</tr>
+			<tr>
+				<td>binarytrees</td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+			</tr>
+			<tr>
+				<td>fannkuch</td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+			</tr>
+			<tr>
+				<td>fasta</td>
+				<td class="color-java"></td>
+				<td class="color-java"></td>
+				<td class="color-js"></td>
+				<td class="color-java"></td>
+				<td class="color-java"></td>
+			</tr>
+			<tr>
+				<td>fastap</td>
+				<td class="color-java"></td>
+				<td class="color-java"></td>
+				<td class="color-java"></td>
+				<td class="color-java"></td>
+				<td class="color-java"></td>
+			</tr>
+			<tr>
+				<td>knucleotide</td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+			</tr>
+			<tr>
+				<td>nbody</td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+			</tr>
+			<tr>
+				<td>regexdna</td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+			</tr>
+			<tr>
+				<td>regexdnap</td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+			</tr>
+			<tr>
+				<td>revcomp</td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+			</tr>
+			<tr>
+				<td>spectral</td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+			</tr>
+		</table>
+		
+
+		<table class="tb-comparison" style="text-align:left;white-space:nowrap;display:inline-block;width:49.5%;overflow-x:auto;">
+			<tr>
+				<th>Performance</th>
+				<th>L90</th>
+				<th>NEXUS 5</th>
+				<th>NEXUS 7</th>
+				<th>SAMSUNG J7</th>
+				<th>ZENFONE SELFIE</th>
+			</tr>
+			<tr>
+				<td>binarytrees</td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-java"></td>
+				<td class="color-js"></td>
+				<td class="color-java"></td>
+			</tr>
+			<tr>
+				<td>fannkuch</td>
+				<td class="color-ndk"></td>
+				<td class="color-java"></td>
+				<td class="color-java"></td>
+				<td class="color-java"></td>
+				<td class="color-java"></td>
+			</tr>
+			<tr>
+				<td>fasta</td>
+				<td class="color-java"></td>
+				<td class="color-java"></td>
+				<td class="color-ndk"></td>
+				<td class="color-java"></td>
+				<td class="color-java"></td>
+			</tr>
+			<tr>
+				<td>fastap</td>
+				<td class="color-java"></td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+				<td class="color-java"></td>
+				<td class="color-java"></td>
+			</tr>
+			<tr>
+				<td>knucleotide</td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+			</tr>
+			<tr>
+				<td>nbody</td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+			</tr>
+			<tr>
+				<td>regexdna</td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+			</tr>
+			<tr>
+				<td>regexdnap</td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+				<td class="color-js"></td>
+			</tr>
+			<tr>
+				<td>revcomp</td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+			</tr>
+			<tr>
+				<td>spectral</td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+				<td class="color-ndk"></td>
+			</tr>
+		</table>
+		</div>
+
+		<h2 style="text-align:center;">Energy summary</h2>
+		<div style="width:90%;margin:0 auto">
+		<div id="energy_winner" style="width:45.9%;display:inline-block;"></div>
+		<div id="energy_winner_donut" style="width:45.9%;display:inline-block;"></div>
+		</div>
+
+		<h2 style="text-align:center;">Performance summary</h2>
+		<div style="width:90%;margin:0 auto">
+		<div id="performance_winner" style="width:45.9%;display:inline-block;"></div>
+		<div id="performance_winner_donut" style="width:45.9%;display:inline-block;"></div>
+		<div>
+
+		<script src="js/tclbg_results.js"></script>
+	</body>
+</html>

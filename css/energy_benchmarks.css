@@ -14,3 +14,20 @@
 .right-align-table {
 	text-align:right;
 }
+
+.tb-comparison {
+	border-collapse: collapse;
+}
+.tb-comparison tr, .tb-comparison  th, .tb-comparison td {
+	border-style: solid;	
+}
+
+.color-js {
+	background: #ff7f0e;
+}
+.color-ndk {
+	background: #2ca02c;
+}
+.color-java {
+	background: #1f77b4;
+}
