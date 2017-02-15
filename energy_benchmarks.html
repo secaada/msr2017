@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Collected energy data</title>
+		<link href="css/c3.min.css" rel="stylesheet" type="text/css">
+		<link href="css/energy_benchmarks.css" rel="stylesheet" type="text/css">
+		<!-- Load d3.js and c3.js -->
+		<script src="js/d3.min.js" charset="utf-8"></script>
+		<script src="js/c3.min.js"></script>
+	</head>
+
+	<body>
+		<div style="width:50%;margin:0px auto;text-align:center;">
+			<h1>Energy benchmarks</h1>
+			<p>We show below the energy consumption in joules for each benchmark along with their running times.</p>
+		</div>
+
+
+		<div style="width:80%;margin:0px auto;">
+			<h2 style="text-align:center">Devices' specifications</h2>
+			<table class='tb-specs' style="text-align:left;white-space:nowrap;height:200px">
+				<tr>
+					<th>Devices</th>
+					<th>Year</th>
+					<th>Android</th>
+					<th>HD</th>
+					<th>RAM</th>
+					<th>Chipset</th>
+					<th>CPU</th>
+					<th class="right-align-table">Battery (mAh)</th>
+				</tr>
+				<tr>
+					<td>LG L90</td>
+					<td>2014</td>
+					<td>5.0.2</td>
+					<td>8GB</td>
+					<td>1GB</td>
+					<td>Snapdragon MSM8226 SD 400</td>
+					<td>Quad-core 1.2 GHz Cortex-A7</td>
+					<td class="right-align-table">2540</td>
+				</tr>
+				<tr>
+					<td>Nexus 5</td>
+					<td>2013</td>
+					<td>5.1</td>
+					<td>16GB</td>
+					<td>2GB</td>
+					<td>Snapdragon MSM8974 SD 800</td>
+					<td>Quad-core 2.3 GHz Krait 400</td>
+					<td class="right-align-table">2300</td>
+				</tr>
+				<tr>
+					<td>Nexus 7</td>
+					<td>2012</td>
+					<td>5.1.1</td>
+					<td>16GB</td>
+					<td>1GB</td>
+					<td>Tegra 3</td>
+					<td>Quad-core 1.2 GHz Cortex-A9</td>
+					<td class="right-align-table">4325</td>
+				</tr>
+				<tr>
+					<td>Samsung J7</td>
+					<td>2015</td>
+					<td>5.1</td>
+					<td>16GB</td>
+					<td>1.5GB</td>
+					<td>Exynos 7580</td>
+					<td>Octa-core 1.5 GHz Cortex-A53</td>
+					<td class="right-align-table">3000</td>
+				</tr>
+				<tr>
+					<td>Zenfone Selfie</td>
+					<td>2015</td>
+					<td>6.0.1</td>
+					<td>32GB</td>
+					<td>3GB</td>
+					<td>Snapdragon MSM8939 SD 615</td>
+					<td>2x Quad-core Cortex-A53</td>
+					<td class="right-align-table">3000</td>
+				</tr>
+			</table>
+		</div>
+		
+		
+		<h2 style="text-align:center;">LG L90</h2>
+		<div class="graph-container">
+			<div id="LGL90_energy" style="width:49.5%;display:inline-block"></div>
+			<div id="LGL90_time" style="width:49.5%;display:inline-block"></div>
+		</div>
+
+		<h2 style="text-align:center;">NEXUS 5</h2>
+		<div class="graph-container">
+			<div id="NEXUS5_energy" style="width:49.5%;display:inline-block"></div>
+			<div id="NEXUS5_time" style="width:49.5%;display:inline-block"></div>
+		</div>
+
+		<h2 style="text-align:center;">NEXUS 7</h2>
+		<div class="graph-container">
+			<div id="NEXUS7_energy" style="width:49.5%;display:inline-block"></div>
+			<div id="NEXUS7_time" style="width:49.5%;display:inline-block"></div>
+		</div>
+
+		<h2 style="text-align:center;">SAMSUNG J7</h2>
+		<div class="graph-container">
+			<div id="SAMSUNGJ7_energy" style="width:49.5%;display:inline-block"></div>
+			<div id="SAMSUNGJ7_time" style="width:49.5%;display:inline-block"></div>
+		</div>
+
+		<h2 style="text-align:center;">ZENFONE SELFIE</h2>
+		<div class="graph-container">
+			<div id="ZENFONESELFIE_energy" style="width:49.5%;display:inline-block"></div>
+			<div id="ZENFONESELFIE_time" style="width:49.5%;display:inline-block"></div>
+		</div>
+
+		<script src="js/energy_benchmarks.js" type="text/javascript"></script>
+	</body>
+</html>

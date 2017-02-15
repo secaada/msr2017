@@ -1,0 +1,33 @@
+.tb-specs {
+	border-collapse: collapse;
+	width: 100%;
+	height: 100%;
+}
+.tb-specs tr {
+	border-top-style: solid;	
+	border-top-color: black;
+}
+.tb-specs tr, .tb-specs  th, .tb-specs td {
+	border-bottom-style: solid;	
+}
+
+.right-align-table {
+	text-align:right;
+}
+
+.tb-comparison {
+	border-collapse: collapse;
+}
+.tb-comparison tr, .tb-comparison  th, .tb-comparison td {
+	border-style: solid;	
+}
+
+.color-js {
+	background: #ff7f0e;
+}
+.color-ndk {
+	background: #2ca02c;
+}
+.color-java {
+	background: #1f77b4;
+}
