@@ -6,7 +6,7 @@ c3.generate({
         ['Web', 250.32,0.7,271.53,0.41],
         ['NDK', 6.26,0.17,0.37,0.03]
       ],
-      type: 'line',
+      type: 'bar',
       colors: {
       	'Energy Java':'#009900',
       	'Energy Javascript':'#ff6600',
@@ -35,7 +35,7 @@ c3.generate({
         ['Web', 27.78,0.89,12.22,0.06],
         ['NDK', 30.11,0.76,13.58,0.06]
       ],
-      type: 'line',
+      type: 'bar',
       colors: {
         'Energy Java':'#009900',
         'Energy Javascript':'#ff6600',
@@ -64,7 +64,7 @@ c3.generate({
         ['Web',  53.85 ,0.05 ,7.78, 0.01],
         ['NDK',  27.92 ,0.56 ,4.14 ,0.02]
       ],
-      type: 'line',
+      type: 'bar',
       colors: {
         'Energy Java':'#009900',
         'Energy Javascript':'#ff6600',
@@ -93,7 +93,7 @@ c3.generate({
         ['Web',  27.49 ,0.03 ,4.21, 0.02],
         ['NDK', 26.75 ,0.02 ,3.97 ,0.02]
       ],
-      type: 'line',
+      type: 'bar',
       colors: {
         'Energy Java':'#009900',
         'Energy Javascript':'#ff6600',

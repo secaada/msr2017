@@ -67,6 +67,9 @@ var barGraph = {
         'RegexDnaP',
         'RevComp',
         'Spectral']
+      },
+      y : {
+        label : 'Energy(J)'
       }
     },
     legend: {
@@ -89,6 +92,9 @@ var lineGraph = {
       x: {
         type: 'category',
         categories:['BinaryTrees','Fannkuch','Fasta','FastaP','Knucleotide','Nbody','RegexDna','RegexDnaP','RevComp','Spectral']
+      },
+      y : {
+        label : 'Time(s)'
       }
     },
     legend: {
@@ -128,6 +134,9 @@ var barLineGraph = {
         'RegexDnaP',
         'RevComp',
         'Spectral']
+      },
+      y : {
+        label : 'Energy(J) and Time(s)'
       }
     },
     legend: {
