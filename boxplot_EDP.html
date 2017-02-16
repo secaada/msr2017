@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Collected energy data</title>
+		<link href="css/energy_benchmarks.css" rel="stylesheet" type="text/css">
+		<script src="js/plotly.min.js"></script>
+	</head>
+
+	<body>
+		<div style="width:80%;margin:0px auto;text-align:center;">
+			<h1>We show here the product between time in seconds and energy in joules of the <a href="energy_benchmarks.html">TCLBG benchmarks</a></h1>
+			<p>This measure is called energy-delay product (EDP) and is often used to evaluate the tradeoffs between circuit level power saving techniques. In our context, we use it to check the tradeoffs between the different development approaches available in Android.</p>
+		</div>
+
+		
+
+		<h2 style="text-align:center;">Boxplot for the different benchmarks</h2>
+		
+		<div id="boxedp"> </div>
+		
+
+		<script src="js/barplot_edp.js"></script>
+	</body>
+</html>
