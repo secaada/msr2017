@@ -7,6 +7,13 @@
 		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 		<script src="js/jquery-1.12.4.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+
+		<link href="css/c3.min.css" rel="stylesheet" type="text/css">
+		<link href="css/energy_benchmarks.css" rel="stylesheet" type="text/css">
+		<!-- Load d3.js and c3.js -->
+		<script src="js/d3.min.js" charset="utf-8"></script>
+		<script src="js/c3.min.js"></script>
+		<script src="js/plotly.min.js"></script>
 	</head>
 
 	<body style="padding-top:70px">
@@ -29,23 +36,414 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-				<p>Using code from <a href="http://benchmarksgame.alioth.debian.org/">TCLBG</a>, <a href="http://rosettacode.org/wiki/Rosetta_Code">Rosetta Code</a> and <a href="https://f-droid.org/">F-droid</a> we benchmark and measure the energy consumption and the performance of different Android development approaches to answer the following questions:</p>
+					<p>Using code from <a href="http://benchmarksgame.alioth.debian.org/">TCLBG</a>, <a href="http://rosettacode.org/wiki/Rosetta_Code">Rosetta Code</a> and <a href="https://f-droid.org/">F-droid</a> we benchmark and measure the energy consumption and the performance of different Android development approaches to answer the following questions:</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h3><b>1. Is there a more energy-efficient app development approach?</b></h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<p>For this question, we ran benchmarks on the following devices:</p>
+					<div class="table-responsive">
+						<table class='table'>
+							<tr>
+								<th>Devices</th>
+								<th>Year</th>
+								<th>Android</th>
+								<th>HD</th>
+								<th>RAM</th>
+								<th>Chipset</th>
+								<th>CPU</th>
+								<th class="right-align-table">Battery (mAh)</th>
+							</tr>
+							<tr>
+								<td>LG L90</td>
+								<td>2014</td>
+								<td>5.0.2</td>
+								<td>8GB</td>
+								<td>1GB</td>
+								<td>Snapdragon MSM8226 SD 400</td>
+								<td>Quad-core 1.2 GHz Cortex-A7</td>
+								<td class="right-align-table">2540</td>
+							</tr>
+							<tr>
+								<td>Nexus 5</td>
+								<td>2013</td>
+								<td>5.1</td>
+								<td>16GB</td>
+								<td>2GB</td>
+								<td>Snapdragon MSM8974 SD 800</td>
+								<td>Quad-core 2.3 GHz Krait 400</td>
+								<td class="right-align-table">2300</td>
+							</tr>
+							<tr>
+								<td>Nexus 7</td>
+								<td>2012</td>
+								<td>5.1.1</td>
+								<td>16GB</td>
+								<td>1GB</td>
+								<td>Tegra 3</td>
+								<td>Quad-core 1.2 GHz Cortex-A9</td>
+								<td class="right-align-table">4325</td>
+							</tr>
+							<tr>
+								<td>Samsung J7</td>
+								<td>2015</td>
+								<td>5.1</td>
+								<td>16GB</td>
+								<td>1.5GB</td>
+								<td>Exynos 7580</td>
+								<td>Octa-core 1.5 GHz Cortex-A53</td>
+								<td class="right-align-table">3000</td>
+							</tr>
+							<tr>
+								<td>Zenfone Selfie</td>
+								<td>2015</td>
+								<td>6.0.1</td>
+								<td>32GB</td>
+								<td>3GB</td>
+								<td>Snapdragon MSM8939 SD 615</td>
+								<td>2x Quad-core Cortex-A53</td>
+								<td class="right-align-table">3000</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<p>Our analysis started by comparing Java and Javascript energy consumption and running time. The two graphs below show energy(J) and time(s) aligned. The experiments used come from <a href="http://rosettacode.org/wiki/Rosetta_Code">Rosetta Code</a>, ran on the Nexus 5.</p>
+					<div class="graph-container">
+						<div id="Rosetta_energy" style="width:100%;display:inline-block"></div>
+						<div id="Rosetta_time" style="width:100%;display:inline-block"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row" style="margin-top: 50px">
+				<div class="col-md-12">
+					<p>Later, for each of our devices, we compared all the three known Android development approaches - NDK, Javascript and Java - using benchmarks from <a href="http://benchmarksgame.alioth.debian.org/">TCLBG</a>.</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<h5><b>LG L90</b></h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6"> <div id="LGL90_energy"></div> </div>
+				<div class="col-md-6"> <div id="LGL90_time"></div> </div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h5><b>NEXUS 5</b></h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6"> <div id="NEXUS5_energy"></div> </div>
+				<div class="col-md-6"> <div id="NEXUS5_time"></div> </div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h5><b>NEXUS 7</b></h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6"> <div id="NEXUS7_energy"></div> </div>
+				<div class="col-md-6"> <div id="NEXUS7_time"></div> </div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h5><b>SAMSUNG J7</b></h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6"> <div id="SAMSUNGJ7_energy"></div> </div>
+				<div class="col-md-6"> <div id="SAMSUNGJ7_time"></div> </div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h5><b>ZENFONE SELFIE</b></h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6"> <div id="ZENFONESELFIE_energy"></div> </div>
+				<div class="col-md-6"> <div id="ZENFONESELFIE_time"></div> </div>
+			</div>
+			<div class="row" style="margin-top: 50px">
+				<div class="col-md-12">
+					<p>We then summarize the results from the <a href="http://benchmarksgame.alioth.debian.org/">TCLBG</a> experiments, counting how many times each approach was better regarding energy and performance.</p>
+				</div>	
+			</div>	
+			<div class="row">
+				<div class="col-md-6">
+					<div class="table-responsive">
+						<table class="table-bordered">
+							<tr>
+								<th>Energy</th>
+								<th>L90</th>
+								<th>NEXUS 5</th>
+								<th>NEXUS 7</th>
+								<th>SAMSUNG J7</th>
+								<th>ZENFONE SELFIE</th>
+							</tr>
+							<tr>
+								<td>binarytrees</td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+							</tr>
+							<tr>
+								<td>fannkuch</td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+							</tr>
+							<tr>
+								<td>fasta</td>
+								<td class="color-java"></td>
+								<td class="color-java"></td>
+								<td class="color-js"></td>
+								<td class="color-java"></td>
+								<td class="color-java"></td>
+							</tr>
+							<tr>
+								<td>fastap</td>
+								<td class="color-java"></td>
+								<td class="color-java"></td>
+								<td class="color-java"></td>
+								<td class="color-java"></td>
+								<td class="color-java"></td>
+							</tr>
+							<tr>
+								<td>knucleotide</td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+							</tr>
+							<tr>
+								<td>nbody</td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+							</tr>
+							<tr>
+								<td>regexdna</td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+							</tr>
+							<tr>
+								<td>regexdnap</td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+							</tr>
+							<tr>
+								<td>revcomp</td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+							</tr>
+							<tr>
+								<td>spectral</td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+							</tr>
+						</table>
+					</div>
+				</div>	
+				<div class="col-md-6">
+					<div class="table-responsive">
+						<table class="table-bordered">
+							<tr>
+								<th>Performance</th>
+								<th>L90</th>
+								<th>NEXUS 5</th>
+								<th>NEXUS 7</th>
+								<th>SAMSUNG J7</th>
+								<th>ZENFONE SELFIE</th>
+							</tr>
+							<tr>
+								<td>binarytrees</td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-java"></td>
+								<td class="color-js"></td>
+								<td class="color-java"></td>
+							</tr>
+							<tr>
+								<td>fannkuch</td>
+								<td class="color-ndk"></td>
+								<td class="color-java"></td>
+								<td class="color-java"></td>
+								<td class="color-java"></td>
+								<td class="color-java"></td>
+							</tr>
+							<tr>
+								<td>fasta</td>
+								<td class="color-java"></td>
+								<td class="color-java"></td>
+								<td class="color-ndk"></td>
+								<td class="color-java"></td>
+								<td class="color-java"></td>
+							</tr>
+							<tr>
+								<td>fastap</td>
+								<td class="color-java"></td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+								<td class="color-java"></td>
+								<td class="color-java"></td>
+							</tr>
+							<tr>
+								<td>knucleotide</td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+							</tr>
+							<tr>
+								<td>nbody</td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+							</tr>
+							<tr>
+								<td>regexdna</td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+							</tr>
+							<tr>
+								<td>regexdnap</td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+								<td class="color-js"></td>
+							</tr>
+							<tr>
+								<td>revcomp</td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+							</tr>
+							<tr>
+								<td>spectral</td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+								<td class="color-ndk"></td>
+							</tr>
+						</table>
+					</div>
+				</div>	
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h5><b>Energy summary</b></h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div id="energy_winner"></div>
+				</div>
+				<div class="col-md-6">
+					<div id="energy_winner_donut"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h5><b>Performance summary</b></h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div id="performance_winner"></div>
+				</div>
+				<div class="col-md-6">
+					<div id="performance_winner_donut"></div>
+				</div>
+			</div>
+
+			<div class="row" style="margin-top: 50px">
+				<div class="col-md-12">
+					<p>In order to check the tradeoffs between each approach, we plotted the energy-delay product (EDP) of the <a href="http://benchmarksgame.alioth.debian.org/">TCLBG</a> benchmarks.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div id="boxedp"> </div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<h3><b>2. Can a hybrid approach to app development save energy?</b></h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<p>For this question we used real apps from the <a href="https://f-droid.org/">F-droid</a> online repository. For each one of them, we varied between the different ways of hybridizing a Android app, discussed in our paper.</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div id="andofStep" ></div>
+				</div>
+				<div class="col-md-6">
+					<div id="enigmaExp" ></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div id="triroseStep" ></div>
+				</div>
+				<div class="col-md-6">
+					<div id="triroseBatch" ></div>
+				</div>
+			</div>
+
+			<div class="row" style="margin-top: 50px">
+				<div class="col-md-12">
+					<p>The answers to these questions and the discussions about these data are available in our paper, which will later be available here.</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
 				<ul style="list-style:none;padding-left:0">
-					<li>
-						<h3><b>Is there a more energy-efficient app development approach?</b></h3>
-						<ul style="list-style:none;padding-left:0">
-							<li><a href="energy_benchmarks_rosetta.html">Benchmarks from Rosetta Code</a></li>
-							<li><a href="energy_benchmarks.html">Benchmarks from TCLBG</a></li>
-							<li><a href="tclbg_results.html">Summary from TCLBG</a></li>
-							<li><a href="boxplot_EDP.html">Energy-delay product of the benchmarks</a></li>
-						</ul>
-					</li>
-					<li>
-						<h3><b>Can a hybrid approach to app development save energy?</b></h3>
-						<ul style="list-style:none;padding-left:0">
-							<li><a href="apps_data.html">Benchmark with real apps</a></li>
-						</ul>
-					</li>
 					<li style="padding-top:00px">
 						<h4><b>Downloadable files</b></h4>
 						<ul style="list-style:none;padding-left:0">
@@ -57,6 +455,7 @@
 				</ul>
 				</div>
 			</div>
+
 			<div class="row">
 				<div class="col-md-12">
 					<h1>Team members</h1>
@@ -72,5 +471,10 @@
 				</div>
 			</div>
 		</div>
+		<script src="js/energy_benchmarks_rosetta.js" type="text/javascript"></script>
+		<script src="js/energy_benchmarks.js" type="text/javascript"></script>
+		<script src="js/tclbg_results.js"></script>
+		<script src="js/barplot_edp.js"></script>
+		<script src="js/app comparison.js" type="text/javascript"></script>
 	</body>
 </html>
