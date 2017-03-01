@@ -15,8 +15,8 @@ var barGraph = {
       columns: [[0],[0]],
       type: 'bar',
       colors: {
-        'Energy Javascript':'#009900',
-        'Energy Java':'#ff6600'
+        'Energy Javascript':'#ff6600',
+        'Energy Java':'#0066ff'
       }
     },
     axis: {
@@ -60,8 +60,8 @@ var lineGraph = {
       columns: [[0],[0]],
       type: 'line',
       colors: {
-        'Time Javascript':'#009900',
-        'Time Java':'#ff6600'
+        'Time Javascript':'#ff6600',
+        'Time Java':'#0066ff'
       }
     },
     axis: {

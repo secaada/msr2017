@@ -220,7 +220,7 @@ var trace1 = {
   y: edpJavaBinaryTree.concat(edpJavaFankuuch).concat(edpJavaFasta).concat(edpJavaFastap).concat(edpJavaKnucleotide).concat(edpJavaNBody).concat(edpJavaRegexDNA).concat(edpJavaRegexDNAP).concat(edpJavaRevcomp).concat(edpJavaSpectral),
   x: x,
   name: 'Java',
-  marker: {color: '#3D9970'},
+  marker: {color: '#0066ff'},
   type: 'box'
 };
 
@@ -228,7 +228,7 @@ var trace2 = {
   y: edpJsBinaryTree.concat(edpJsFankuuch).concat(edpJsFasta).concat(edpJsFastap).concat(edpJsKnucleotide).concat(edpJsNBody).concat(edpJsRegexDNA).concat(edpJsRegexDNAP).concat(edpJsRevcomp).concat(edpJsSpectral),
   x: x,
   name: 'Javascript',
-  marker: {color: '#FF4136'},
+  marker: {color: '#ff6600'},
   type: 'box'
 };
 
@@ -236,7 +236,7 @@ var trace3 = {
   y: edpNDKBinaryTree.concat(edpNDKFankuuch).concat(edpNDKFasta).concat(edpNDKFastap).concat(edpNDKKnucleotide).concat(edpNDKNBody).concat(edpNDKRegexDNA).concat(edpNDKRegexDNAP).concat(edpNDKRevcomp).concat(edpNDKSpectral),
   x: x,
   name: 'NDK',
-  marker: {color: '#FF851B'},
+  marker: {color: '#009900'},
   type: 'box'
 };
 

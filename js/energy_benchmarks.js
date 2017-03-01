@@ -49,9 +49,9 @@ var barGraph = {
       columns: [[0],[0],[0]],
       type: 'bar',
       colors: {
-        'Energy Java':'#009900',
+        'Energy Java':'#0066ff',
         'Energy Javascript':'#ff6600',
-        'Energy NDK':'#0066ff'
+        'Energy NDK':'#009900'
       }
     },
     axis: {
@@ -83,9 +83,9 @@ var lineGraph = {
       columns: [[0],[0],[0]],
       type: 'line',
       colors: {
-        'Time Java':'#009900',
+        'Time Java':'#0066ff',
         'Time Javascript':'#ff6600',
-        'Time NDK':'#0066ff'
+        'Time NDK':'#009900'
       }
     },
     axis: {
@@ -113,12 +113,12 @@ var barLineGraph = {
         'Time NDK':'line'
       },
       colors: {
-        'Energy Java':'#009900',
+        'Energy Java':'#0066ff',
         'Energy Javascript':'#ff6600',
-        'Energy NDK':'#0066ff',
-        'Time Java':'#009900',
+        'Energy NDK':'#009900',
+        'Time Java':'#0066ff',
         'Time Javascript':'#ff6600',
-        'Time NDK':'#0066ff'
+        'Time NDK':'#009900'
       }
     },
     axis: {
