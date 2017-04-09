@@ -114,3 +114,32 @@ c3.generate({
     }
 });
 
+c3.generate({
+    bindto: '#BioNucleusStep',
+    data: {
+      columns: [
+        ['Java',  122.4 ,0.4 ,0.44*3.6*4.1 ,0.02],
+        ['Javascript',  122.2 ,0.24 ,0.45*3.6*4.1, 0.03],
+        ['NDK', 122.3 ,0.18 ,0.44*3.6*4.1 ,0.02]
+      ],
+      type: 'bar',
+      colors: {
+        'Energy Java':'#009900',
+        'Energy Javascript':'#ff6600',
+        'Energy NDK':'#0066ff'
+      }
+    },
+    axis: {
+      x: {
+        type: 'category',
+        categories:['Time(s)',
+        'Time stdev',
+        'Energy(J)',
+        'Energy stdev']
+      }
+    },
+    legend: {
+        position: 'right'
+    }
+});
+
